@@ -158,9 +158,9 @@ if((%beeminder || @beeminder) && $resp !~ /^\s*$/) {
 # Send pings to the given beeminder goal, e.g. passing "alice/foo" sends
 # appropriate (as defined in .tagtimerc) pings to bmndr.com/alice/foo
 sub bm { my($s) = @_;
-  $cmd = "${path}beeminder.pl ${path}$usr.log $s";
+  $cmd = "${path}beeminder.pl $logf $s";
   if(system($cmd) != 0) {
-    print "ERROR running command: beeminder.pl $usr.log $s\n";
+    print "ERROR running command: $cmd\n";
     $eflag++;
   }
 }
